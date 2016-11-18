@@ -31,7 +31,8 @@ gulp.task('move-js', function () {
          'node_modules/jquery/dist/*.min.js', 
          'node_modules/angular/*.min.js',
          'node_modules/angular-resource/*.min.js',
-         'node_modules/angular-route/*.min.js'
+         'node_modules/angular-route/*.min.js',
+         'node_modules/angular-modal-service/dst/*.min.js'
         ]).pipe(gulp.dest('sales-client/lib/js'));
 });
 
@@ -49,7 +50,7 @@ return [b, d];
 });*/
 
 gulp.task('default', function () {
-    runSequence('clean', ['move-css', 'move-css-dev', 'move-fonts', 'move-js']);
+    runSequence('clean', [ /*'move-css',*/ 'move-css-dev', 'move-fonts', 'move-js']);
 });
 
 // Styles Task

@@ -1,26 +1,22 @@
-<h2>Produtos</h2>
+<h2>Categorias</h2>
 <div ng-init="loadAll()">
-
-	<div>
-		<a href="#/produtos/new" class="pull-right ">Novo</a>
-	</div>
+	<p>
+		<button class="btn btn-primary btn-sm" ng-click="new()">Novo</button>
+	</p>
 	<table id="tableData" class="table table-bordered table-hover table-striped">
 		<thead>
 			<tr>
 				<th width="10%">Id</th>
-				<th>Nome</th>
 				<th>Categoria</th>
 			</tr>
 		</thead>
 		<tbody>
 			<tr ng-repeat="row in rows | startFrom: currentPage*pageSize| limitTo: pageSize">
 				<td>{{row.id}}</td>
-				<td><a href='#/produtos/{{row.id}}'>{{row.nome}}</a></td>
-				<td>{{row.categoria.categoria}}</td>
+				<td><a href='#/categorias/{{row.id}}'>{{row.categoria}}</a></td>
 			</tr>
 		</tbody>
 	</table>
-	
-	<button class="btn btn-primary" ng-click="currentPage=currentPage-1" ng-disabled="currentPage == 0" >&larr; Voltar</button>
+	<button class="btn btn-primary" ng-click="currentPage=currentPage-1" ng-disabled="currentPage == 0">&larr; Voltar</button>
 	<button class="btn btn-primary pull-right" ng-click="currentPage=currentPage+1" ng-disabled="currentPage >= rows.length/pageSize - 1">Avançar &rarr;</button>
 </div>

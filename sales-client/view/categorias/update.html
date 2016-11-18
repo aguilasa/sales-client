@@ -1,28 +1,16 @@
-<h2>Produto</h2>
+<h2>Categoria</h2>
 <div ng-init="loadRow()">
     <form name="form" class="well form-horizontal" ng-show="row!=null">
-
         
         <div class="form-group">
           <label class="col-md-4 control-label">ID</label>
           <div class="col-md-4 inputGroupContainer">
             <div class="input-group">
               <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
-              <input name="id" placeholder="ID" type="text" ng-model="row.id" class="form-control" required ng-disabled="row.isUpdate" />
+              <input name="id" placeholder="ID" type="text" ng-model="row.id" class="form-control" required ng-disabled="row.isUpdate || row.isNew" />
             </div>
           </div>
           <span class="help-inline text-error" ng-show="form.id.$dirty && form.id.$invalid">Campo obrigatório</span>
-        </div>
-		
-		<div class="form-group">
-          <label class="col-md-4 control-label">Produto</label>
-          <div class="col-md-4 inputGroupContainer">
-            <div class="input-group">
-              <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
-              <input name="nome" placeholder="Nome do produto" type="text" ng-model="row.nome" class="form-control" required />
-            </div>
-          </div>
-          <span class="help-inline text-error" ng-show="form.nome.$dirty && form.nome.$invalid">Campo obrigatório</span>
         </div>
 
         <div class="form-group">
@@ -30,17 +18,17 @@
           <div class="col-md-4 inputGroupContainer">
             <div class="input-group">
               <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
-              <input name="categoria" placeholder="Categoria" type="text" ng-model="row.categoria.categoria" class="form-control" required />
+              <input name="categoria" placeholder="Categoria" type="text" ng-model="row.categoria" class="form-control" required />
             </div>
           </div>
-          <span class="help-inline text-error" ng-show="form.categoria.categoria.$dirty && form.categoria.categoria.$invalid">Campo obrigatório</span>
+          <span class="help-inline text-error" ng-show="form.categoria.$dirty && form.categoria.$invalid">Campo obrigatório</span>
         </div>
 
         <div class="form-group">
           <label class="col-md-4 control-label"></label>
           <div class="col-md-4">
             <button type="submit" class="btn btn-primary" ng-click="save()" ng-Disabled="form.$invalid">Salvar</button>
-            <a href="#/produtos" class="btn">Voltar</a>
+            <a href="#/categorias" class="btn">Voltar</a>
             <button class="btn btn-danger pull-right" ng-click="del()">Apagar</button>
           </div>
         </div>
